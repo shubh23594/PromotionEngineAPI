@@ -5,19 +5,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PromotionEngineAPI.Common.DTO;
+using PromotionEngineAPI.Interface;
 
 namespace PromotionEngineAPI.Controllers
 {
+    [ApiController]
     [Route("[controller]")]
     public class PromotionEngineController : ControllerBase
     {
-        Response response = new Response
-        {
-            ResponseMetaData = new ResponseMetaDto()
-        };
+        private Response response;
 
-        public PromotionEngineController()
+        private readonly IPromotionBO promotionBO;
+
+        public PromotionEngineController(IPromotionBO promotionBO)
         {
+            this.promotionBO = promotionBO;
         }
 
         /// <summary>
@@ -26,12 +28,12 @@ namespace PromotionEngineAPI.Controllers
         /// <para name= "Contact"> </para>
         /// </summary>
         /// <returns><ActionResult></returns>
-        [HttpPost]
-        [Route("CheckoutTotal")]
-        public ActionResult<Response> CheckoutTotal([FromBody] SkuIdsDto item)
+        [HttpPost("CheckoutTotal")]
+        public ActionResult<Response> CheckoutTotal(SkuIdsDto item)
         {
             try
             {
+                response = promotionBO.GetCheckoutTotal(item);
             }
             catch (Exception ex)
             {

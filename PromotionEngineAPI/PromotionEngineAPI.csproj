@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PromotionEngineAPI.Business\PromotionEngineAPI.Business.csproj" />
     <ProjectReference Include="..\PromotionEngineAPI.Common\PromotionEngineAPI.Common.csproj" />
+    <ProjectReference Include="..\PromotionEngineAPI.Interface\PromotionEngineAPI.Interface.csproj" />
   </ItemGroup>
 
 
