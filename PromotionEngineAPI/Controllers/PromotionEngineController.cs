@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PromotionEngineAPI.Common;
 using PromotionEngineAPI.Common.DTO;
 using PromotionEngineAPI.Interface;
 

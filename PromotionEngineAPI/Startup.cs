@@ -28,6 +28,7 @@ namespace PromotionEngineAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IPromotionBO, PromotionBO>();
+            services.AddSingleton<IProdcutService, ProdcutService>();
             services.AddControllers();
         }
 
