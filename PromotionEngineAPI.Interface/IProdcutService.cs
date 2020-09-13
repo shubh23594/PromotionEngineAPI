@@ -8,7 +8,14 @@ namespace PromotionEngineAPI.Interface
 {
     public interface IProdcutService
     {
-        void GetUnitPrice(Product product);
         int GetTotalPrice(SkuIdsDto skuIdsDto);
+
+        int CalculatePromotionB(SkuIdsDto skuIdsDto);
+
+        int CalculatePromotionA(SkuIdsDto skuIdsDto);
+
+        int CalculatePromotionCD(SkuIdsDto skuIdsDto);
+
+
     }
 }

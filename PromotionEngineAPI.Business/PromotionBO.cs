@@ -1,4 +1,5 @@
 ﻿using PromotionEngineAPI.Common;
+using PromotionEngineAPI.Common.Constants;
 using PromotionEngineAPI.Common.DTO;
 using PromotionEngineAPI.Interface;
 using System;
@@ -14,9 +15,6 @@ namespace PromotionEngineAPI.Business
         Response response = new Response
         {
             ResponseMetaData = new ResponseMetaDto()
-            {
-                Status = "S"
-            }
         };
 
         public PromotionBO(IProdcutService prodcutService)
@@ -26,6 +24,7 @@ namespace PromotionEngineAPI.Business
         public Response GetCheckoutTotal(SkuIdsDto skuIdsDto)
         {
             response.TotalAmount = prodcutService.GetTotalPrice(skuIdsDto);
+            response.ResponseMetaData.Status = PromotionConstant.Status_Success;
             return response;
         }
     }
