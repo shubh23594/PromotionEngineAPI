@@ -1,8 +1,4 @@
-﻿using PromotionEngineAPI.Common;
-using PromotionEngineAPI.Common.DTO;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using PromotionEngineAPI.Common.DTO;
 
 namespace PromotionEngineAPI.Interface
 {

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using PromotionEngineAPI.Common;
+﻿using Microsoft.AspNetCore.Mvc;
+using PromotionEngineAPI.Common.Constants;
 using PromotionEngineAPI.Common.DTO;
 using PromotionEngineAPI.Interface;
+using System;
 
 namespace PromotionEngineAPI.Controllers
 {
@@ -38,7 +34,8 @@ namespace PromotionEngineAPI.Controllers
             }
             catch (Exception ex)
             {
-                return new OkObjectResult(response);
+                response.ResponseMetaData.Status = PromotionConstant.Status_Error;
+                response.ResponseMetaData.Message = ex.ToString();
             }
             return response;
         }

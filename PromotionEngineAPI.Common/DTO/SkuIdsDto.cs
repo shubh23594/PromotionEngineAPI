@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PromotionEngineAPI.Common.DTO
+﻿namespace PromotionEngineAPI.Common.DTO
 {
     public class SkuIdsDto
     {

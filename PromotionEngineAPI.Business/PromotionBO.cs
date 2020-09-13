@@ -1,10 +1,6 @@
-﻿using PromotionEngineAPI.Common;
-using PromotionEngineAPI.Common.Constants;
+﻿using PromotionEngineAPI.Common.Constants;
 using PromotionEngineAPI.Common.DTO;
 using PromotionEngineAPI.Interface;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace PromotionEngineAPI.Business
 {
