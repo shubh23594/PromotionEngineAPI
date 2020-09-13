@@ -15,6 +15,7 @@ namespace PromotionEngineAPI.XunitTest
         private readonly ProdcutService prodcutService ;  
         private  PromotionEngineController promotionEngineController;
         public PromotionEngineControllerXunit() {
+            prodcutService = new ProdcutService();
             promotionBO = new PromotionBO(prodcutService);
             promotionEngineController = new PromotionEngineController(promotionBO);
         }
@@ -45,6 +46,78 @@ namespace PromotionEngineAPI.XunitTest
             //Assert
             Assert.Equal(100, Resp.TotalAmount);
 
+        }
+        
+        [Fact]
+        public void CheckProdcutServiceLayer_PromotionA()
+        {
+            //Arrange
+            SkuIdsDto request = new SkuIdsDto
+            {
+                ItemA = 3,
+                ItemB = 2,
+                ItemC = 3,
+                ItemD = 4
+            };
+
+            //Act
+            int res = prodcutService.CalculatePromotionA(request);
+            //Assert
+            Assert.Equal(130, res);
+        }
+
+        [Fact]
+        public void CheckProdcutServiceLayer_PromotionB()
+        {
+            //Arrange
+            SkuIdsDto request = new SkuIdsDto
+            {
+                ItemA = 3,
+                ItemB = 2,
+                ItemC = 3,
+                ItemD = 4
+            };
+
+            //Act
+            int res = prodcutService.CalculatePromotionB(request);
+            //Assert
+            Assert.Equal(45, res);
+        }
+
+        [Fact]
+        public void CheckProdcutServiceLayer_PromotionCD()
+        {
+            //Arrange
+            SkuIdsDto request = new SkuIdsDto
+            {
+                ItemA = 3,
+                ItemB = 2,
+                ItemC = 1,
+                ItemD = 1
+            };
+
+            //Act
+            int res = prodcutService.CalculatePromotionCD(request);
+            //Assert
+            Assert.Equal(30, res);
+        }
+
+        [Fact]
+        public void CheckProdcutServiceLayer_GetTotalPrice()
+        {
+            //Arrange
+            SkuIdsDto request = new SkuIdsDto
+            {
+                ItemA = 5,
+                ItemB = 5,
+                ItemC = 1,
+                ItemD = 0
+            };
+
+            //Act
+            int res = prodcutService.GetTotalPrice(request);
+            //Assert
+            Assert.Equal(370, res);
         }
 
         [Fact]
