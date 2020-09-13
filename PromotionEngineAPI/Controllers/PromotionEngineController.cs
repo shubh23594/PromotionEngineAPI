@@ -20,11 +20,10 @@ namespace PromotionEngineAPI.Controllers
         }
 
         /// <summary>
-        /// Add Contact Details to Azure SQL Database 
-        /// by passing passing Contact Details to be updated
-        /// <para name= "Contact"> </para>
+        ///Checkout total for products A,B,C and D
+        /// <para name= "SkuIdsDto"> </para>
         /// </summary>
-        /// <returns><ActionResult></returns>
+        /// <returns><Response></returns>
         [HttpPost("CheckoutTotal")]
         public ActionResult<Response> CheckoutTotal(SkuIdsDto item)
         {

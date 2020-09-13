@@ -6,7 +6,9 @@ namespace PromotionEngineAPI.Business
 {
     public class ProdcutService : IProdcutService
     {
-        
+        /// <summary>
+        ///Calculating Total Price of Product A, B, C and D
+        /// </summary>
         public int GetTotalPrice(SkuIdsDto skuIdsDto)
         {
             int totalPriceofA = CalculatePromotionA(skuIdsDto);             
@@ -16,16 +18,25 @@ namespace PromotionEngineAPI.Business
             return  totalPriceofA + totalPriceofB + totalPriceofCD;
         }
 
+        /// <summary>
+        ///Calculating Promotion A values
+        /// </summary>
         public int CalculatePromotionA(SkuIdsDto skuIdsDto)
         {
             return (skuIdsDto.ItemA / 3) * PromotionConstant.PromotionA + (skuIdsDto.ItemA % 3 * PromotionConstant.ProductA);
         }
 
+        /// <summary>
+        ///Calculating Promotion B values
+        /// </summary>
         public int CalculatePromotionB(SkuIdsDto skuIdsDto)
         {
             return (skuIdsDto.ItemB / 2) * PromotionConstant.PromotionB + (skuIdsDto.ItemB % 2 * PromotionConstant.ProductB);
         }
 
+        /// <summary>
+        ///Calculating Promotion CD values
+        /// </summary>
         public int CalculatePromotionCD(SkuIdsDto skuIdsDto)
         {
             int total = 0;

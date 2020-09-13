@@ -17,6 +17,10 @@ namespace PromotionEngineAPI.Business
         {
             this.prodcutService = prodcutService;
         }
+
+        /// <summary>
+        ///Checkout Total Calculation
+        /// </summary>
         public Response GetCheckoutTotal(SkuIdsDto skuIdsDto)
         {
             response.TotalAmount = prodcutService.GetTotalPrice(skuIdsDto);
